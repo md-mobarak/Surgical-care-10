@@ -58,8 +58,8 @@ const Home = () => {
                 </Carousel>
             </div>
             <div className='container'>
-                <h1 className='service-header my-4'>Our Service</h1>
-                <div className='d-flex justify-content-evenly  row row-cols-1 row-cols-md-4 g-4'>
+                <h1 className='service-header my-4' id='/service'>Our Service</h1>
+                <div className='d-flex justify-content-around  row row-cols-1 row-cols-md-4 g-4 m-5'>
                     {services.map(service =>
                         <Service
                             key={service.id}
