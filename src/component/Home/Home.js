@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
 import Service from '../Service/Service';
 import './Home.css'
 
 const Home = () => {
+
+    const [services, setServices] = useState([])
+    useEffect(() => {
+        fetch('service.json')
+            .then(res => res.json())
+            .then(data => setServices(data))
+    }, [])
+
     const img1 = "https://img.freepik.com/free-photo/portrait-smiling-male-doctor_171337-1532.jpg?t=st=1650124217~exp=1650124817~hmac=58dd4660ada2f0176b4076695fbadcdd774480db7e1fe9e5fad528a1147cee87&w=740"
 
     const img2 = "https://img.freepik.com/free-photo/surgeons-performing-operation-operation-room_1170-2224.jpg?w=740"
@@ -49,8 +57,15 @@ const Home = () => {
                     </Carousel.Item>
                 </Carousel>
             </div>
-            <div>
-                <Service></Service>
+            <div className='container'>
+                <h1 className='service-header my-4'>Our Service</h1>
+                <div className='d-flex justify-content-evenly  row row-cols-1 row-cols-md-4 g-4'>
+                    {services.map(service =>
+                        <Service
+                            key={service.id}
+                            service={service}
+                        ></Service>)}
+                </div>
             </div>
         </div>
     );
