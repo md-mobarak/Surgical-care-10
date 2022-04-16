@@ -1,0 +1,12 @@
+.head-line {
+    color: #263082;
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.slide-header {
+    color: #263082;
+}
