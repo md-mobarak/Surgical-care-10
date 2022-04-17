@@ -6,6 +6,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const Login = () => {
+    const [agree, setAgree] = useState(false)
     const navigate = useNavigate()
     const [email, setEmail] = useState()
     const location = useLocation()
@@ -26,7 +27,9 @@ const Login = () => {
     }
     const handleOnSubmit = (e) => {
         e.preventDefault()
-        signInWithEmailAndPassword(email, password)
+        if (agree) {
+            signInWithEmailAndPassword(email, password)
+        }
     }
 
 
@@ -59,13 +62,15 @@ const Login = () => {
                     <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
+                    <Form.Check onClick={() => setAgree(!agree)} type="checkbox" label="Check me out" />
                 </Form.Group>
                 <p>New to Clinic?
                     <button onClick={() => navigate('/signup')} type="button" className="btn btn-link text-decoration-none">Please Sign up</button>
                 </p>
                 <p className='text-danger'>{error ? 'wrong password' : ''}</p>
-                <button className='login-btn'>Login</button>
+
+                <button className={!agree ? "login-btn-2" : "login-btn"}>Login</button>
+
 
 
             </Form>

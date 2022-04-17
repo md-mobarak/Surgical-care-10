@@ -18,6 +18,15 @@
     padding: 7px;
 }
 
+.login-btn-2 {
+    width: 100%;
+    background-color: #5d5c61fb;
+    color: white;
+    border-radius: 20px;
+    border: 0;
+    padding: 7px;
+}
+
 .google-btn {
     width: 100%;
     background-color: #263082;

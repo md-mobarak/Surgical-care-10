@@ -13,7 +13,7 @@ const Service = ({ service }) => {
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
-                <button onClick={() => navigate('/checkout')} className='service-btn'>Add to Cart</button>
+                <button onClick={() => navigate('/checkout')} className='service-btn'>Checkout</button>
             </div>
         </div>
     );
