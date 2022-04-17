@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -8,6 +8,7 @@ import auth from '../../firebase.init';
 const Login = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState()
+    const location = useLocation()
     const [password, setPassword] = useState()
     const [
         signInWithEmailAndPassword,
@@ -27,9 +28,20 @@ const Login = () => {
         e.preventDefault()
         signInWithEmailAndPassword(email, password)
     }
+
+
+    let from = location.state?.from?.pathname || "/";
     if (user) {
-        navigate('/')
+        navigate(from, { replace: true });
     }
+
+
+    if (loading) {
+        return <div className='d-flex justify-content-center'>
+            <h1>Loading...</h1>;
+        </div>
+    }
+
 
     return (
         <div className='mx-auto w-25 mt-5'>
@@ -52,7 +64,9 @@ const Login = () => {
                 <p>New to Clinic?
                     <button onClick={() => navigate('/signup')} type="button" className="btn btn-link text-decoration-none">Please Sign up</button>
                 </p>
+                <p className='text-danger'>{error ? 'wrong password' : ''}</p>
                 <button className='login-btn'>Login</button>
+
 
             </Form>
         </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../image/google.png'
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const Signup = () => {
@@ -16,6 +16,7 @@ const Signup = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value)
@@ -26,9 +27,20 @@ const Signup = () => {
     const handleOnSubmit = (e) => {
         e.preventDefault()
         createUserWithEmailAndPassword(email, password, { sendEmailVerification: true })
+
     }
-    if (user) {
+
+    const handleGoogleSignIn = (e) => {
+        e.preventDefault()
+        signInWithGoogle(email, password)
+    }
+
+    if (user && googleUser) {
         navigate('/')
+    }
+
+    if (googleLoading) {
+        return <h1 className='text-center'>Loading...</h1>;
     }
 
     return (
@@ -56,8 +68,10 @@ const Signup = () => {
                     <button onClick={() => navigate('/login')} type="button" className="btn btn-link text-decoration-none">Please Login</button>
                 </p>
                 <button className='login-btn'>Sign Up</button>
-                <button className='google-btn mt-2'> <img src={logo} alt="" width="25px" />Google Sign In</button>
-                {/* <p>{error.message}</p> */}
+
+                <button onClick={handleGoogleSignIn} className='google-btn mt-2'> <img src={logo} alt="" width="25px" />Google Sign In</button>
+
+                <p>{googleError ? googleError.message : ""}</p>
             </Form>
         </div>
     );
