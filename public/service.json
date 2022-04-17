@@ -1,20 +1,23 @@
 [
     {
         "id": 1,
-        "name": "",
+        "name": "Cholecystectomy",
         "img": "https://img.freepik.com/free-photo/surgeons-interacting-with-each-other-operation-room_1170-2246.jpg?w=740&t=st=1650132894~exp=1650133494~hmac=1d3cc5aa7a11a5ae17e5f26de9cb3fe6fb1b662202a11a05262544b71e804dfd",
-        "discription": ""
+        "discription": "gall bladder distended,bile duct distended,exploration of bile duct done,2 stones palpation of common bile duct done manually",
+        "price": "$1200"
     },
     {
         "id": 2,
-        "name": "",
+        "name": "TURP under S/A",
         "img": "https://img.freepik.com/free-photo/spinal-surgery-group-surgeons-operating-room-with-surgery-equipment_179755-5187.jpg?w=740",
-        "discription": ""
+        "discription": "urethra normal,tri-lobar enlargement of prostate with bladder neck hypertrophy",
+        "price": "$7000"
     },
     {
         "id": 3,
-        "name": "",
+        "name": "Laparatomy under G/A",
         "img": "https://img.freepik.com/free-photo/modern-equipment-operating-room-medical-devices-neurosurgery_179755-863.jpg?w=740",
-        "discription": ""
+        "discription": "small perforation near the duedeno-jejunal flexure",
+        "price": "$10000"
     }
 ]

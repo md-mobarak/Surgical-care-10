@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [agree, setAgree] = useState(false)
@@ -17,7 +19,9 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-
+    const [sendPasswordResetEmail, sending, ResetError] = useSendPasswordResetEmail(
+        auth
+    );
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value)
@@ -45,6 +49,11 @@ const Login = () => {
         </div>
     }
 
+    const handleResetPassword = async () => {
+        await sendPasswordResetEmail(email);
+        toast('Sent email');
+    }
+
 
 
 
@@ -70,16 +79,16 @@ const Login = () => {
                     <button onClick={() => navigate('/signup')} type="button" className="btn btn-link text-decoration-none">Please Sign up</button>
                 </p>
                 <p className='mb-0'>Forget Your Password?
-                    <button onClick={() => navigate('/signup')} type="button" className="btn btn-link text-decoration-none">Please Reset</button>
+                    <button onClick={handleResetPassword} type="button" className="btn btn-link text-decoration-none">Please Reset</button>
                 </p>
                 <p className='text-danger'>{error ? 'wrong password' : ''}</p>
 
                 <button className={!agree ? "login-btn-2" : "login-btn"}>Login</button>
-
+                <ToastContainer />
 
 
             </Form>
-        </div>
+        </div >
     );
 };
 
