@@ -13,7 +13,7 @@ const Header = () => {
     };
     return (
         <div>
-            <Navbar className='header-nav' collapseOnSelect expand="lg" bg="" variant="dark">
+            <Navbar className='header-nav' collapseOnSelect expand="lg" bg="" sticky='top' variant="dark">
                 <Container>
                     <Navbar.Brand as={Link} to="/home">Home</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -26,9 +26,10 @@ const Header = () => {
                         <Nav>
                             <Nav.Link as={Link} to="/about">About Me</Nav.Link>
                             {user ?
-                                <Nav.Link onClick={logout} eventKey={2} as={Link} to="/login">
+                                <button className='logout-btn' onClick={logout}>
                                     LogOut
-                                </Nav.Link>
+                                </button>
+
                                 :
                                 <Nav.Link eventKey={2} as={Link} to="/login">
                                     Login

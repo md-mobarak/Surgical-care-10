@@ -14,7 +14,7 @@ const Signup = () => {
         user,
         loading,
         error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
@@ -26,8 +26,14 @@ const Signup = () => {
     }
     const handleOnSubmit = (e) => {
         e.preventDefault()
-        createUserWithEmailAndPassword(email, password, { sendEmailVerification: true })
+        createUserWithEmailAndPassword(email, password)
 
+    }
+    if (loading) {
+        return <h1>Loading...</h1>
+    }
+    if (error) {
+        return <p>Error:{error.message}</p>
     }
 
     const handleGoogleSignIn = (e) => {
@@ -35,12 +41,13 @@ const Signup = () => {
         signInWithGoogle(email, password)
     }
 
-    if (user && googleUser) {
-        navigate('/')
-    }
+
 
     if (googleLoading) {
         return <h1 className='text-center'>Loading...</h1>;
+    }
+    if (user || googleUser) {
+        navigate('/')
     }
 
     return (
@@ -50,7 +57,7 @@ const Signup = () => {
                 <h1 className='login'>Sign Up</h1>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Your Name</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="name" placeholder="Enter Name" />
 
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -71,7 +78,7 @@ const Signup = () => {
 
                 <button onClick={handleGoogleSignIn} className='google-btn mt-2'> <img src={logo} alt="" width="25px" />Google Sign In</button>
 
-                <p>{googleError ? googleError.message : ""}</p>
+                <p className='text-danger'>{googleError ? googleError.message : ""}</p>
             </Form>
         </div>
     );

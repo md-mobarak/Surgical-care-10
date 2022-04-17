@@ -46,6 +46,8 @@ const Login = () => {
     }
 
 
+
+
     return (
         <div className='mx-auto w-25 mt-5'>
 
@@ -53,19 +55,22 @@ const Login = () => {
                 <h1 className='login'>Login</h1>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control onChange={handleEmailChange} type="email" placeholder="Enter email" />
+                    <Form.Control onChange={handleEmailChange} type="email" placeholder="Enter email" required />
 
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" />
+                    <Form.Control onChange={handlePasswordChange} type="password" placeholder="Password" re />
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check onClick={() => setAgree(!agree)} type="checkbox" label="Check me out" />
                 </Form.Group>
-                <p>New to Clinic?
+                <p className='mb-0'>New to Clinic?
                     <button onClick={() => navigate('/signup')} type="button" className="btn btn-link text-decoration-none">Please Sign up</button>
+                </p>
+                <p className='mb-0'>Forget Your Password?
+                    <button onClick={() => navigate('/signup')} type="button" className="btn btn-link text-decoration-none">Please Reset</button>
                 </p>
                 <p className='text-danger'>{error ? 'wrong password' : ''}</p>
 

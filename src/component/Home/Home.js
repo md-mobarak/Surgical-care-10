@@ -29,7 +29,7 @@ const Home = () => {
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <h1 className='slide-header'>Welcome To My Our Clinic</h1>
+                            <h1 className='slide-header'>Welcome To My Clinic</h1>
                             <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
