@@ -11,7 +11,7 @@ const About = () => {
                     </div>
                     <div className='col-sm-12 col-md-6'>
                         <h3 className='text-center my-3'>Mohammad Mobarak Hossen</h3>
-                        <p> <h2 className=' d-inline me-2'>My Goal,</h2>
+                        <p> <h4 className=' d-inline me-2'>My Goal,</h4>
                             Everyone should have an aim in life.
                             It will help you to be preparing properly for the future.
                             My aim in life is to become an web-developer. I love the computer.

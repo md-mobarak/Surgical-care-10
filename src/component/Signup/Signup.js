@@ -49,7 +49,7 @@ const Signup = () => {
         return <h1 className='text-center'>Loading...</h1>;
     }
     if (user || googleUser) {
-        navigate('/')
+        navigate('/login')
     }
 
     return (

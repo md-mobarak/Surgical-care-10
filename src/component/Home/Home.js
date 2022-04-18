@@ -33,7 +33,7 @@ const Home = () => {
                         />
                         <Carousel.Caption>
                             <h1 className='slide-header'>Welcome To My Clinic</h1>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            {/* <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item interval={500}>
@@ -44,7 +44,7 @@ const Home = () => {
                         />
                         <Carousel.Caption>
                             <h3 className='slide-header'>Stay at Home. Consult Doctors Online</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> */}
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -55,14 +55,14 @@ const Home = () => {
                         />
                         <Carousel.Caption>
                             <h3 className='slide-header'>Covid Care Plan</h3>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            {/* s */}
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
             </div>
             <div>
-                <h1 className='service-header my-4' id='#/service'>Our Service</h1>
-                <div className='d-flex justify-content-around  row row-cols-1 row-cols-md-4 g-4 m-5'>
+                <h1 className='service-header mt-4' id='#/service'>Our Service</h1>
+                <div className='d-flex justify-content-around  row row-cols-1 row-cols-md-4 g-4 m-3'>
                     {services.map(service =>
                         <Service
                             key={service.id}

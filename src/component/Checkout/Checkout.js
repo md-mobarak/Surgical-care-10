@@ -7,16 +7,19 @@ import 'react-toastify/dist/ReactToastify.css';
 const Checkout = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
+
     }
     const inputSubmit = () => {
         toast('Thank you For Booking');
+
     }
+
 
     const navigate = useNavigate()
     return (
         <div className='container'>
             <h1 className='text-center'>Address</h1>
-            <form onClick={handleSubmit}>
+            <form className='checkout-form' onClick={handleSubmit}>
                 <label htmlFor="">Your Name</label>
                 <input type="text" name="" id="" required placeholder='Name' />
                 <label htmlFor="">Email</label>

@@ -1,16 +1,16 @@
-input {
+.checkout-form input {
     display: block;
     margin-bottom: 15px;
     margin-left: 50px;
     border-radius: 10px;
 }
 
-label {
+.checkout-form label {
     margin-left: 50px;
 
 }
 
-form {
+.checkout-form {
     border: 1px solid #263082;
     margin: 0 auto;
     position: relative;
