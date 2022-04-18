@@ -1,4 +1,4 @@
-<!-- # Getting Started with Complete Surgical Care
+# Getting Started with Complete Surgical Care
 
 # [Complete Surgical Care](https://github.com/facebook/create-react-app)
 
@@ -9,7 +9,7 @@
 * login Form with authentication
 * One Blog site
 * About Details
-* Doctor service Details -->
+* Doctor service Details
 
 
 ##  used Technologist
