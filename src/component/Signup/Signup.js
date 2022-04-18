@@ -33,12 +33,14 @@ const Signup = () => {
         return <h1>Loading...</h1>
     }
     if (error) {
-        return <p>Error:{error.message}</p>
+        return <p className='text-danger text-center'>Error:{error.message}</p>
     }
 
     const handleGoogleSignIn = (e) => {
         e.preventDefault()
+
         signInWithGoogle(email, password)
+
     }
 
 

@@ -19,12 +19,12 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link as={Link} to="/service">Services</Nav.Link>
+                            <Nav.Link as={Link} to="/">Services</Nav.Link>
                             <Nav.Link as={Link} to="/blog">Blog</Nav.Link>
 
                         </Nav>
                         <Nav>
-                            <Nav.Link as={Link} to="/about">About Me</Nav.Link>
+                            <Nav.Link as={Link} to="/about">About</Nav.Link>
                             {user ?
                                 <button className='logout-btn' onClick={logout}>
                                     LogOut

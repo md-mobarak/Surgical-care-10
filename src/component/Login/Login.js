@@ -45,7 +45,7 @@ const Login = () => {
 
     if (loading) {
         return <div className='d-flex justify-content-center'>
-            <h1>Loading...</h1>;
+            <h1 className='text-center'>Loading...</h1>;
         </div>
     }
 
